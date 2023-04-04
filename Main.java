@@ -1,35 +1,28 @@
+import java.util.Arrays;
+import java.util.Scanner;
 public class Main {
- 
-        static boolean isFind(int[] arr, int value ) {
-            for(int i : arr) {
-                if ( i == value) {
-                    return true;
-                }
-            }
-            return false;
-        }
     public static void main (String[]args) {
-            int[] list = { 3, 7, 7, 3, 6, 8, 9, 9, 8, 6, 6, 10, 2 };
-            int[] duplicate = new int[list.length];
-            int startIndex = 0;
+            Scanner input = new Scanner(System.in);
+//Dizinin boyutunu kullanıcıdan al//Get the size of array from user
+        System.out.print("Enter the size of Array : ");
+        int size = input.nextInt();
 
-            for (int i = 0; i < list.length; i++) {
-                for ( int j = 0; j < list.length; j++) {
-                    if((i != j) && (list [i] == list[j])) {
-                        if (!isFind(duplicate, list[i] )) {
-                            duplicate[startIndex++] = list[i];
+        int[] array = new int[size];
 
-                        }
-                        break;
-                    }
-                }
+        //Dizinin elemanlarını kullanıcıdan al
+
+        for(int i = 0; i < size; i++) {
+            System.out.print("Dizinin " + (i+1) + ". elemanını girin: ");
+                array[i] = input.nextInt();
             }
-            for(int value : duplicate) {
-                if(value != 0){
-                    System.out.println(value);
-                }
+            Arrays.sort(array);
+
+            System.out.println("Dizinin küçükten büyüğe sıralanmış hali:");
+            for ( int i = 0 ; i < size ; i++) {
+                System.out.print(array[i] + " ");
             }
+        }
     }
-}
+
 
 
